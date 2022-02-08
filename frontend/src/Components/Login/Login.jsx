@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -58,14 +58,15 @@ const Login = () => {
                             </div>
                         </div>
                         <button className='btn btn-primary mt-3'>Login</button>
+                        <a href="/signup" className="btn btn-info mt-3 mx-3">Signup</a>
                     </form>
 
                     {error? <p className="text-danger">Please enter all the fields</p>:""}
-                    <a href="/signup" className="btn btn-info mt-3">Signup</a>
+                   
                 </div>
             </div>
       </div>
   </div>);
 };
 
-export default Login;
+

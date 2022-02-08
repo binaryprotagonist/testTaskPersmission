@@ -1,8 +1,7 @@
 import "./App.css";
-import Login from "./Components/Login";
-import Signup from "./Components/Signup";
+import {Login, Signup, FileList} from './Components'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import FileList from "./Components/FileList";
+
 
 function App() {
   return (

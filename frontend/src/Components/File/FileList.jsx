@@ -4,7 +4,7 @@ import { Button, Form, Modal } from "react-bootstrap";
 import Select from "react-select";
 import { useNavigate } from 'react-router-dom';
 
-const FileList = () => {
+export  const FileList = () => {
   const [show, setShow] = useState(false);
   const [edit, setEdit] = useState(false);
   const [showEdit, setShowEdit] = useState([]);
@@ -127,6 +127,29 @@ const FileList = () => {
   };
   const handleCloseEdit = async () => {
     setEdit(false);
+    if (selectedFile && values) {
+        let formData = new FormData();
+        values.forEach((item) => formData.append("users", item));
+        formData.append("file", selectedFile);
+        //   console.log(values);
+        //   console.log(formData);
+        var token = localStorage.getItem("testTask");
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+        };
+        const res = await axios.post(
+          "http://localhost:3001/api/file",
+          formData,
+          config
+        );
+        console.log(res);
+        if (res.data == "file saved") {
+          setMessage(true);
+        }
+      }
   };
 
   return (
@@ -253,13 +276,13 @@ const FileList = () => {
                   />
                 </div>
 
-                <Button
+                {/* <Button
                   variant="primary"
                   className="mt-3"
                   onClick={handleCloseEdit}
                 >
                   Save
-                </Button>
+                </Button> */}
               </form>
             </Modal.Body>
             <Modal.Footer>
@@ -274,4 +297,4 @@ const FileList = () => {
   );
 };
 
-export default FileList;
+
