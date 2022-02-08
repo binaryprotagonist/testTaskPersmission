@@ -1,4 +1,4 @@
-# testTaskPersmission
+# Getting started with Permission Task
 
 The project was compiled on mac machine both front-end and back-end. 
 
