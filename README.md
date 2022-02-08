@@ -21,3 +21,4 @@ node app.js/ nodemon app.js
 # front-end has been configured with default port on react
 
 Both projects can be run together in different terminals to get the project working 
+# please let me know if any issues
